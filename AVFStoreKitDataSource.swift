@@ -55,6 +55,8 @@ extension AVFStoreKitVC: UITableViewDelegate {
     }
 
     public
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        action?(.get)
+    }
 
 }

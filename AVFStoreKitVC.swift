@@ -1,15 +1,29 @@
 import UIKit
 
-// Example:
-//    let avfStoreKitConfig = AVFStoreKitConfig()
-//    avfStoreKitConfig.appId = "1013279592"
-//    avfStoreKitConfig.overrideParms = ["title": "Geometry", "subtitle": "Architecture around you", "iconURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAA8qJDxryT5VxBN7NbLXDQ_BqWJHtSK74UqlUFlGK2A5c6vU3"]
-//    avfStoreKitConfig.updateData { error in
-//        guard error == nil else {
-//            return
+//        Example:
+//        let avfStoreKitConfig = AVFStoreKitConfig()
+//        avfStoreKitConfig.appId = "1013279592"
+//        avfStoreKitConfig.overrideParms = ["title": "Geometry", "subtitle": "Architecture around you", "iconURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAA8qJDxryT5VxBN7NbLXDQ_BqWJHtSK74UqlUFlGK2A5c6vU3"]
+//        avfStoreKitConfig.updateData { error in
+//            guard error == nil else {
+//                return
+//            }
+//            let vc = AVFStoreKitVC(config: avfStoreKitConfig)
+//            vc.action = { print($0) }
+//            self.present(vc, animated: true, completion: nil)
 //        }
-//        self.present(AVFStoreKitVC(config: avfStoreKitConfig), animated: true, completion: nil)
-//    }
+
+
+public
+enum AVFStoreKitAction {
+    
+    public
+    enum ScrollType {
+        case screenshots, reviews
+    }
+    case get, dots, scroll(type: ScrollType, page: Int), more, seeAll, close
+
+}
 
 
 
@@ -17,6 +31,8 @@ final public
 class AVFStoreKitVC: UIViewController {
 
     let config: AVFStoreKitConfig
+    
+    var action: ((AVFStoreKitAction) -> Void)?
 
     private lazy
     var tableView = UITableView().with {
