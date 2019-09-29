@@ -7,11 +7,7 @@ final public
 class AVFStoreKitConfig : NSObject {
 
     public
-    var appId: String?  {
-        didSet {
-            updateData()
-        }
-    }
+    var appId: String?
 
     public
     var locale: String?
