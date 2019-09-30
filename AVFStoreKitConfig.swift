@@ -1,4 +1,5 @@
 import Foundation
+import DailyUtils
 
 private
 let baseURL = "https://itunes.apple.com/lookup?id="
